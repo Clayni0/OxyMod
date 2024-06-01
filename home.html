@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texture Packs</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url('https://graph.org/file/320933c5b99ad48d73790.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: blue;
+        }
+        .navbar {
+            display: flex;
+            justify-content: flex-end;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 1em;
+        }
+        .navbar .login-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .navbar .login-button:hover {
+            background-color: #0056b3;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .scroll-container {
+            display: flex;
+            overflow-x: auto;
+            width: 80%;
+            padding: 20px;
+            gap: 15px; /* Отступ между элементами 15px */
+            cursor: grab;
+        }
+        .scroll-container:active {
+            cursor: grabbing;
+        }
+        .item {
+            position: relative;
+            text-align: center;
+            flex-shrink: 0;
+            width: 200px;
+            background-color: rgba(0, 191, 255, 0.2); /* Голубой фон */
+            border-radius: 10px;
+            overflow: hidden;
+            transition: background-color 0.3s;
+        }
+        .item:hover {
+            background-color: rgba(0, 191, 255, 0.3); /* При наведении немного темнее */
+        }
+        .image-container {
+            position: relative;
+            margin-bottom: 5px; /* Минимальный отступ снизу для текста */
+        }
+        .image-container img {
+            width: 100%;
+            height: auto;
+            object-fit: contain; /* Сохраняет изображение полностью видимым */
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .image-container img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px #000;
+        }
+        .description {
+            color: white;
+            font-size: 0.9em;
+            background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный черный фон для описания */
+            padding: 5px; /* Уменьшенные отступы внутри */
+            border-radius: 0 0 10px 10px;
+        }
+        .description p {
+            margin: 2px 0; /* Минимальный отступ между строками */
+        }
+        @keyframes crazyAnimation {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(3deg); }
+            50% { transform: rotate(0deg); }
+            75% { transform: rotate(-3deg); }
+            100% { transform: rotate(0deg); }
+        }
+        .crazy {
+            animation: crazyAnimation 8s infinite;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1em;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <button class="login-button" onclick="window.location.href='https://www.example.com/login'">Войти</button>
+    </div>
+    <div class="container">
+        <div class="scroll-container" onmousedown="event.preventDefault()">
+            <div class="item">
+                <div class="image-container">
+                    <img src="https://graph.org/file/e9276b0fd82eb5075b878.jpg" onclick="window.location.href='https://www.example.com/link1'" class="crazy">
+                </div>
+                <div class="description">
+                    <p>Texture Pack</p>
+                    <p>Core 16x</p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="image-container">
+                    <img src="https://graph.org/file/187937d44adb7ed175cc0.jpg" onclick="window.location.href='https://www.example.com/link2'" class="crazy">
+                </div>
+                <div class="description">
+                    <p>Texture Pack</p>
+                    <p>Core 16x</p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="image-container">
+                    <img src="https://graph.org/file/d19f00b69b04af5212d87.jpg" onclick="window.location.href='https://www.example.com/link3'" class="crazy">
+                </div>
+                <div class="description">
+                    <p>Описание 1 строчка</p>
+                    <p>Описание 2 строчка</p>
+                    <p>Описание 3 строчка</p>
+                </div>
+            </div>
+            <!-- Добавьте больше изображений по необходимости -->
+        </div>
+    </div>
+    <div class="footer">
+        Для отгрузки Texture Packs, Mods, Maps пишите на: <a href="mailto:OxyCloudMod@yandex.ru" style="color: white; text-decoration: none;">OxyCloudMod@yandex.ru</a>
+    </div>
+    <script>
+        // Скрипт для прокрутки контейнера с изображениями
+        const scrollContainer = document.querySelector('.scroll-container');
+
+        scrollContainer.addEventListener('wheel', (evt) => {
+            evt.preventDefault();
+            scrollContainer.scrollLeft += evt.deltaY;
+        });
+    </script>
+</body>
+</html>
